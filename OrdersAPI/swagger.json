@@ -42,7 +42,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Everything ok"
+          },
+          "400": {
+            "description": "Missing body"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
