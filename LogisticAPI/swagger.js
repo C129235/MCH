@@ -3,17 +3,17 @@ const swaggerAutogen = require('swagger-autogen')()
 const doc = {
     info: {
         version: "1.0.0",
-        title: "Hiberus Checkout API",
-        description: "Documentation of Checkout service"
+        title: "Hiberus Logistic API",
+        description: "Documentation of logistics service"
     },
-    host: "localhost:3000",
+    host: "localhost:4000",
     basePath: "/",
     schemes: ['http', 'https'],
     consumes: ['application/json'],
     produces: ['application/json'],
     tags: [
         {
-            "name": "Checkout"
+            "name": "Bill"
         }
     ],
     definitions: {
@@ -21,11 +21,12 @@ const doc = {
             clientId: 1,
             date: "2012-04-23T18:25:43.511Z",
             direction:"",
+            totalBill: 5.5,
             products:[
                 {
                     id: 1,
                     quantity: 12,
-                    cost: 2.5
+                    cost: 12.5
                 },
                 {
                     id: 2,

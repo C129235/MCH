@@ -19,14 +19,14 @@ const doc = {
     definitions: {
         products:[
             {
-                id: "1",
-                quantity: "12",
-                cost: "12.5"
+                id: 1,
+                quantity: 12,
+                cost: 12.5
             },
             {
-                id: "2",
-                quantity: "13",
-                cost: "5.5"
+                id: 2,
+                quantity: 13,
+                cost: 5.5
             }
         ]
     }

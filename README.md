@@ -12,15 +12,19 @@ triggered:
 docker build . -t orders-api
 2. In BillAPI folder:
 docker build . -t bill-api
+3. In LogisticAPI folder:
+docker build . -t logistic-api
 
 # Run solution
 docker run -d -p 3000:3000 orders-api
 docker run -d -p 4000:4000 bill-api
+docker run -d -p 5000:5000 logistic-api
 
 # Test Solution
 Every service has a Swagger definition in /swagger route
 OrdersApi: http://localhost:3000/swagger
 BillApi: http://localhost:4000/swagger
+LogisticApi: http://localhost:5000/swagger
 
 Use OrdersApi to send a checkout
 

@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Hiberus Bill API",
+    "description": "Documentation of Bill service"
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Bill"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/bill": {
+      "post": {
+        "tags": [
+          "Bill"
+        ],
+        "description": "Endpoint to sum productos",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "List of products.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/products"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Everything ok"
+          },
+          "400": {
+            "description": "Missing body"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "2"
+          },
+          "quantity": {
+            "type": "string",
+            "example": "13"
+          },
+          "cost": {
+            "type": "string",
+            "example": "5.5"
+          }
+        }
+      }
+    }
+  }
+}
