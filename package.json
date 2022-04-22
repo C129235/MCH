@@ -1,0 +1,22 @@
+{
+  "name": "ordersserviceapi",
+  "version": "1.0.0",
+  "description": "HiberusNodeJsTest",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "swagger-autogen": "node swagger.js"
+  },
+  "keywords": [],
+  "author": "WayOps",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "swagger-autogen": "^2.21.1",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

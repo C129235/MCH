@@ -1,0 +1,90 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Hiberus Checkout API",
+    "description": "Documentation of Checkout service"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Checkout"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/checkout": {
+      "post": {
+        "tags": [
+          "Checkout"
+        ],
+        "description": "Endpoint start a ckeckout process",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Checkout information.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Order": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string",
+          "example": "1"
+        },
+        "date": {
+          "type": "string",
+          "example": "2012-04-23T18:25:43.511Z"
+        },
+        "direction": {
+          "type": "string",
+          "example": ""
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "2"
+              },
+              "quantity": {
+                "type": "string",
+                "example": "13"
+              },
+              "cost": {
+                "type": "string",
+                "example": "5.5"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
