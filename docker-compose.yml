@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  ordersapi:
+    build:
+      context: ./OrdersAPI
+      dockerfile: Dockerfile
+    image: ordersapiimage
+    container_name: ordersapi
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - BILLAPIHOST=$BILLAPIHOST
+      - BILLAPIPORT=$BILLAPIPORT
+      - LOGISTICAPIHOST=$LOGISTICAPIHOST
+      - LOGISTICAPIPORT=$LOGISTICAPIPORT
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - "billapi"
+      - "logisticapi"
+  billapi:
+    build:
+      context: ./BillAPI
+      dockerfile: Dockerfile
+    image: billapiimage
+    container_name: billapi
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - app-network
+  logisticapi:
+    build:
+      context: ./LogisticAPI
+      dockerfile: Dockerfile
+    image: logisticapiimage
+    container_name: logisticapi
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

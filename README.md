@@ -8,23 +8,22 @@ triggered:
 - Call Logistic service to create a sent order
 
 # Build and Test
-1. In OrdersAPI folder:
-docker build . -t orders-api
-2. In BillAPI folder:
-docker build . -t bill-api
-3. In LogisticAPI folder:
-docker build . -t logistic-api
+1. Requirements 
+- Docker & docker-compose instalation
+- Nodejs installation
+- Npm installation
 
-# Run solution
-docker run -d -p 3000:3000 orders-api
-docker run -d -p 4000:4000 bill-api
-docker run -d -p 5000:5000 logistic-api
+2. Buid and run services with docker-compose
+Execute: docker-compose up -d
 
-# Test Solution
-Every service has a Swagger definition in /swagger route
+- Docker-compose will deploy OrdersAPI, BillAPI and LogisticAPI in a network named app-network.
+- .env file has the configuration names for OrdersAPI (included in git for testing purposes).
+- Only OrdersAPI have exposed the port 3000, BillAPI and LogisticAPI are not accessible from the outside.
+- OrdersAPI can access BillAPI and LogisticAPI by name.
+
+3. Test 
+User Swagger to test OrdersAPI, a valid example has been provided.
 OrdersApi: http://localhost:3000/swagger
-BillApi: http://localhost:4000/swagger
-LogisticApi: http://localhost:5000/swagger
 
 Use OrdersApi to send a checkout
 
@@ -35,6 +34,7 @@ Use OrdersApi to send a checkout
 - swagger-ui-express: Swagger library to expose OpenApi definition
 - nodemon (only dev): Development tool for restarting application when file changes
 - axios: Promise based HTTP client for the browser and node.js
+- docker-compose: Build and deploy services in docker
 
 
 
